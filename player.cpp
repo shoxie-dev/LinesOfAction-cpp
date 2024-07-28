@@ -457,10 +457,10 @@ void get_possible_moves(char board_f[ROWS][COLS],char board_t[ROWS][COLS], int p
 
 //code should be fine after this. emphasis on should
 void countbw(char board_t[ROWS][COLS], int pieceX, int pieceY, char player, int& vertMove, int& horMove, int& odMove, int& diagMove) {
-    int countV{};//upwards vertical
-    int countH{};// right horizontal
-    int countod{};//d for diagonal
-    int countd{};  
+    int countV{};// vertical
+    int countH{};// horizontal
+    int countod{};//od off diagonal
+    int countd{};  //d diagonal
     for(size_t i{}; i < ROWS; ++i){
         if(board_t[i][pieceY] == 'b' || board_t[i][pieceY] == 'w'){
             ++countV;
