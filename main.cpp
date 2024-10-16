@@ -1,3 +1,4 @@
+/*
 #include <iostream>
 #include "player.h"
 
@@ -6,6 +7,8 @@ int main(){
 
     return 0;
 }
+*/
+
 
     
 

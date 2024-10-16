@@ -1,0 +1,43 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "cppbuild",
+			"label": "C/C++: g++ build active file",
+			"command": "/usr/bin/g++",
+			"args": [
+				"-fdiagnostics-color=always",
+				"-g",
+				"${workspaceFolder}/*.cpp",
+				"-std=c++23",
+				"-o",
+				"${fileDirname}/main",
+				"-I",
+				"/usr/local/lib/wx/include/gtk3-unicode-3.2",
+				"-I",
+				"/usr/local/include/wx-3.2",
+				"-DWXUSINGDLL ",
+				"-D__WXGTK__",
+				"-pthread",
+				"-lwx_gtk3u_xrc-3.2",
+				"-lwx_gtk3u_html-3.2",
+				"-lwx_gtk3u_qa-3.2",
+				"-lwx_gtk3u_core-3.2",
+				"-lwx_baseu_xml-3.2",
+				"-lwx_baseu_net-3.2",
+				"-lwx_baseu-3.2"
+			],
+			"options": {
+				"cwd": "${fileDirname}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"detail": "compiler: /usr/bin/g++"
+		}
+	]
+}
