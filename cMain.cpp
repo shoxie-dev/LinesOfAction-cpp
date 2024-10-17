@@ -49,7 +49,12 @@ void cMain::OnButtonPress(wxCommandEvent& event){
         int id = event.GetId();
         int x = (id - 1000) / 8;
         int y = (id - 1000) % 8;
-        wxLogStatus("Button has been pressed pos: ( %d, %d)", x, y);
+        wxLogStatus("Player: %c", *currentPlayer);
+
+        if(isDraw || isWin){
+            wxExit();
+        }
+
         if(!selectedPiece){
             valid_piece = isPiece(board_p, x, y, *currentPlayer);
             if(valid_piece){
@@ -65,6 +70,7 @@ void cMain::OnButtonPress(wxCommandEvent& event){
                 add_move(board_p, x, y, selectedX, selectedY, *currentPlayer);
                 addMoveGUI(selectedX, selectedY, x, y, *currentPlayer);
                 resetBoard(board_t, board_p);//update possible moves board.
+                
                 isDraw = check_draw(board_p);
                 if(isDraw == true){
                     std::string message = "Game is a draw";
@@ -84,6 +90,7 @@ void cMain::OnButtonPress(wxCommandEvent& event){
                         ResultAnnouncement(message);
                     }
                 }
+                
                 //update         
                 squares[selectedX][selectedY]->Refresh();
                 squares[selectedX][selectedY]->Update();
